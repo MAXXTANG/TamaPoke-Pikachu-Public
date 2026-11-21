@@ -10,7 +10,7 @@
 
 ## 已保存的版本
 
-[v1.19-pika 下載頁](https://github.com/MAXXTANG/TamaPoke-Pikachu-Public/releases/tag/v1.19-pika) 提供韌體與完整留存 ZIP。
+[v1.19-pika 下載頁](https://github.com/MAXXTANG/TamaPoke-Pikachu-Public/releases/tag/archive-2026-11-21) 提供韌體與完整留存 ZIP。
 
 | 檔案 | 燒錄位址 | 用途與驗證 |
 | --- | --- | --- |
