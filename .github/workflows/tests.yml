@@ -1,0 +1,23 @@
+name: Host game tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  host-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run game tests and sanitizers
+        run: make -C TamaPoke/test CXX=g++ run asan
+      - name: Verify embedded assets
+        run: python3 tools/generate_embedded.py --check
+      - name: Verify firmware checksums
+        working-directory: firmware
+        run: sha256sum -c SHA256SUMS

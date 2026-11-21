@@ -1,0 +1,111 @@
+--- upstream/TamaPoke.ino
++++ custom/TamaPoke.ino
+@@ -38,7 +38,7 @@
+ 
+ // Version del firmware. Subir este numero en cada release (y manifest.json para
+ // el instalador web). Se muestra en la pantalla de ajustes y por serie al arrancar.
+-#define FW_VERSION "1.19"
++#define FW_VERSION "1.19-pika"
+ 
+ Arduino_DataBus *bus = new Arduino_ESP32QSPI(
+   LCD_CS, LCD_SCLK, LCD_SDIO0, LCD_SDIO1, LCD_SDIO2, LCD_SDIO3);
+@@ -685,8 +685,7 @@
+   } else if (line.startsWith("SPEC ")) {
+     int n = line.substring(5).toInt();
+     if (n >= 1 && n <= DEX_COUNT) {
+-      pet.prevSpeciesId = pet.speciesId;
+-      pet.speciesId = n;
++      pet.selectSpecies(n);
+       Serial.printf("especie #%d %s\n", n, DEX_TBL[n].name);
+     }
+     Serial.println("DONE");
+--- upstream/pet.h
++++ custom/pet.h
+@@ -81,6 +81,7 @@
+ 
+   void begin();                 // carga estado de NVS (o crea el primer huevo)
+   void update(uint32_t nowMs);  // llamar en cada loop()
++  void selectSpecies(int16_t dex);  // local console selection, persisted immediately
+ 
+   // Acciones (botones tactiles)
+   void feed();              // baya roja (compatibilidad)
+--- upstream/pet.cpp
++++ custom/pet.cpp
+@@ -11,6 +11,18 @@
+     load();
+   }
+   lastTick = millis();
++}
++
++void Pet::selectSpecies(int16_t dex) {
++  if (dex < 1 || dex > DEX_COUNT) return;
++  prevSpeciesId = speciesId;
++  speciesId = eggTarget = dex;
++  starterPick = false;
++  eggTaps = 3;
++  shiny = eggShiny = false;
++  ceremony = CER_NONE;
++  registerSpecies(dex);
++  save();
+ }
+ 
+ void Pet::newEgg() {
+--- upstream/sdmon.cpp
++++ custom/sdmon.cpp
+@@ -1,5 +1,6 @@
+ #include "sdmon.h"
+ #include "pin_config.h"
++#include "embedded_mon.h"
+ #include <FS.h>
+ #if BOARD_AMOLED_175C
+ #include <LittleFS.h>
+@@ -15,26 +16,39 @@
+ 
+ bool PmdMon::load(uint8_t dexNum, bool shiny) {
+   unload();
+-  if (!sdReady) return false;
+ 
+   char path[28];
+   snprintf(path, sizeof(path), "/mons/p%s%03u.bin", shiny ? "s" : "", dexNum);
+-  File f = SpriteFS.open(path, FILE_READ);
+-  if (!f && shiny) {  // sin shiny PMD: usa el normal
+-    snprintf(path, sizeof(path), "/mons/p%03u.bin", dexNum);
++  File f;
++  if (sdReady) {
+     f = SpriteFS.open(path, FILE_READ);
+-  }
+-  if (!f) return false;
+-
+-  uint32_t size = f.size();
++    if (!f && shiny) {  // sin shiny PMD: usa el normal
++      snprintf(path, sizeof(path), "/mons/p%03u.bin", dexNum);
++      f = SpriteFS.open(path, FILE_READ);
++    }
++  }
++
++  uint32_t size = 0;
++  const uint8_t *embedded = nullptr;
++  if (f) {
++    size = f.size();
++  } else {
++    embedded = embeddedMonData(dexNum, shiny, size);
++    if (!embedded) return false;
++    Serial.printf("Embedded sprite #%u shiny=%u\n", dexNum, shiny);
++  }
+   if (size < 7 || size > 3UL * 1024 * 1024) { f.close(); return false; }
+   blob = (uint8_t *)ps_malloc(size);
+-  if (!blob || f.read(blob, size) != size || memcmp(blob, "TPK2", 4) != 0) {
+-    if (blob) { free(blob); blob = nullptr; }
++  if (!blob) { f.close(); return false; }
++  if (embedded) {
++    memcpy(blob, embedded, size);
++  } else if (f.read(blob, size) != size) {
++    unload();
+     f.close();
+     return false;
+   }
+   f.close();
++  if (memcmp(blob, "TPK2", 4) != 0) { unload(); return false; }
+ 
+   uint8_t nActs = blob[4];
+   memcpy(&palCount, blob + 5, 2);

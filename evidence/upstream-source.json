@@ -1,0 +1,122 @@
+{
+  "repository": "https://github.com/socquique/TamaPoke",
+  "commit": "00136942f42c651ceb75fbfef8499a2df945cde7",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c92bedde60ca87f27221971af47d517c017cc31a62cc952e6f83ea664dc31ac5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d7493e13654597ec43f93a44e2a4d9d832ae5aafba264d0a9b72e4b8a60a0ca6"
+    },
+    {
+      "path": "TamaPoke.ino",
+      "sha256": "d13f3b0a838710db35e5e696675e1348cf4e8595c0045615d511f24fbcdc3219"
+    },
+    {
+      "path": "audio.cpp",
+      "sha256": "48a42e58053670f4c32ef040a64a2475b6cad5bcb8f303c63bcd7126ba0f3c07"
+    },
+    {
+      "path": "audio.h",
+      "sha256": "4e761f42c3e2649cedd4c62ce93de94cf77535bbc89c1e3872d65022ac52e87b"
+    },
+    {
+      "path": "batcurve.h",
+      "sha256": "b3102a1e70ee27bbc5a5d8f891584d1718c0361b76f66d8b965537fdef3f875a"
+    },
+    {
+      "path": "blit.h",
+      "sha256": "42d761bd5f2eb9caa29eb7b2316be35191aeb1bc04ba16d3b0bd349562508dd0"
+    },
+    {
+      "path": "board.h",
+      "sha256": "fad91f0c8392537b34c1a79ad6d78bc87cb78db740bba6a48469200322d29d40"
+    },
+    {
+      "path": "bootbutton.cpp",
+      "sha256": "88843952242907bb0430f7f07137390b41f6a1ffcdbe18beda45f0fc99a96ac9"
+    },
+    {
+      "path": "bootbutton.h",
+      "sha256": "acf09fce4c511ee6850565853b8068069d59ca76b65bbb933505ba96748dac7f"
+    },
+    {
+      "path": "dex.h",
+      "sha256": "5d638eadf0f0ac16788633c3f555fbbb505d9c4817a70a583e1591e0e041b34a"
+    },
+    {
+      "path": "i18n.cpp",
+      "sha256": "0d060d8db4b2c99342137edeb6968d68f3a3c4f080936014e1f13e11b322a033"
+    },
+    {
+      "path": "i18n.h",
+      "sha256": "59693d7b8413e9c30a64d565a36262fb190f20415eb95f09e0965ee5be390a68"
+    },
+    {
+      "path": "pet.cpp",
+      "sha256": "f398b3fc16d463adfa32d715b03f943faa2a5afc17fcc440ba957013ae68aab0"
+    },
+    {
+      "path": "pet.h",
+      "sha256": "fdd35556ffb58912640f086327a2fca4acbdc6dcf5ca0daf6e41da21600c9cdb"
+    },
+    {
+      "path": "pin_config.h",
+      "sha256": "792441c8be5f79f0bb74f4c364437f6d44fc7c54af765dac06b8e06b5f93e7de"
+    },
+    {
+      "path": "power.h",
+      "sha256": "9070d5f701dd2ea78c41cadee86b58144dee3ad43d6217ed5b511fd98b267ffe"
+    },
+    {
+      "path": "rtcbat.cpp",
+      "sha256": "410caea63eb95cd0b86b5a5aeba11f17eb0c56888b331dca5b7dd465ad476d8d"
+    },
+    {
+      "path": "rtcbat.h",
+      "sha256": "42df796432736455f185bb0ef173b4704bbbc4059d2d8720baf32cdbf31b1dd4"
+    },
+    {
+      "path": "screenlock.cpp",
+      "sha256": "b17e176ddecce848422015dfcce9627bc0212146bc4fadbf687dde17fe892ca3"
+    },
+    {
+      "path": "screenlock.h",
+      "sha256": "b8286598215ab9b92441330851b02eca29d4c5fa2ea0f5e3252b3a60f65aa08d"
+    },
+    {
+      "path": "sdmon.cpp",
+      "sha256": "d0e00dc295d652df0a5fe4224ca2708679db616ffdd88ea84849c44e22257e91"
+    },
+    {
+      "path": "sdmon.h",
+      "sha256": "dc7f71ac9252b08386d8e3af4994916584673feee9ce4967ed7fb99bcbbdac42"
+    },
+    {
+      "path": "species.h",
+      "sha256": "5eac3ba6a80967284a4f9abcffa731f1b1ecdd55bafd0982f2533638971392fe"
+    },
+    {
+      "path": "trainingcapture.cpp",
+      "sha256": "e92252a11810e6a8258e5e70314ce90453e77ba20f348960325082ae702bf5db"
+    },
+    {
+      "path": "trainingcapture.h",
+      "sha256": "4444d96f558840f45e992fd3023e1167e8cf79847558ae3ecf3416db3e7e6e0d"
+    },
+    {
+      "path": "trainingtouch.cpp",
+      "sha256": "b617aa5ab6b43451dd6ff5d131da50fde9000c5e820374414a8faf917b7cae5f"
+    },
+    {
+      "path": "trainingtouch.h",
+      "sha256": "551ba320b1d7545e5128304bb8ddcb3df4cfc6e9d1592cd37c168ae6ceb37e15"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "949db431710b6287875d6a2a6a5673a3fedad0b2a1fe8144b374d52949fc2f95"
+    }
+  ]
+}

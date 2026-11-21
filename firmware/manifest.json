@@ -1,0 +1,38 @@
+{
+  "version": "1.19-pika",
+  "created_at": "2026-11-12T23:18:15.589390+08:00",
+  "board": "Waveshare ESP32-S3-Touch-AMOLED-1.75",
+  "chip": "ESP32-S3",
+  "flash_size_bytes": 16777216,
+  "psram_size_bytes": 8388608,
+  "images": [
+    {
+      "file": "tamapoke-1.19-pika-app.bin",
+      "size_bytes": 1471920,
+      "sha256": "d5da1d790d8794f92d8db0ff8cbbcffaaeb5ca0e3b7642451944a94e2133edbe",
+      "flash_offset": "0x10000",
+      "flashed_and_hash_verified": true
+    },
+    {
+      "file": "tamapoke-1.19-pika-factory.bin",
+      "size_bytes": 1537456,
+      "sha256": "c3a9322abf99bde35e127f2ff6e3f1a8a55e9d658a664b807df6dc0f39b29e3b",
+      "flash_offset": "0x0",
+      "flashed_and_hash_verified": false
+    }
+  ],
+  "factory_image_composition": "Official v1.19 first 0x10000 bytes (bootloader, partition table, empty NVS, boot_app0) plus the exact installed custom application",
+  "factory_prefix_source": "https://socquique.github.io/TamaPoke/web/firmware/tamapoke.bin",
+  "factory_prefix_source_file_sha256": "73b6f07e8caa381c16411dffb646ec0d78e1bbccd9a89e8bc0ba6a8b320aa9a9",
+  "factory_image_full_flash_tested": false,
+  "embedded_species": [
+    25,
+    26
+  ],
+  "embedded_forms": [
+    "normal",
+    "shiny"
+  ],
+  "select_pikachu_command": "SPEC 25",
+  "game_save_included": false
+}

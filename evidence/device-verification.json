@@ -1,0 +1,22 @@
+{
+  "completed_at": "2026-11-12T23:13:57.084868+08:00",
+  "firmware_version": "1.19-pika",
+  "firmware_sha256": "d5da1d790d8794f92d8db0ff8cbbcffaaeb5ca0e3b7642451944a94e2133edbe",
+  "firmware_size_bytes": 1471920,
+  "flash_offset": "0x10000",
+  "write_hash_verified": true,
+  "selected_species": 25,
+  "selected_species_name": "Pikachu",
+  "selection_survives_reboot": true,
+  "sprite_loaded_after_reboot": true,
+  "microsd_required_for_pikachu": false,
+  "visual_display_status": "awaiting_user_observation",
+  "touch_operation_status": "awaiting_user_observation_after_custom_build",
+  "post_reboot_state": {
+    "species": 25,
+    "microsd_mounted": false,
+    "sprite_loaded": true,
+    "pokedex_contains_species_25": true
+  },
+  "observed_version_banner": "TamaPoke fw v1.19-pika (ESP32-S3-Touch-AMOLED-1.75)"
+}

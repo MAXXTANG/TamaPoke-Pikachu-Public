@@ -1,0 +1,5 @@
+*.bin binary
+*.png binary
+TamaPoke/embedded_mon.cpp linguist-generated=true
+*.patch -whitespace
+evidence/*.log -whitespace

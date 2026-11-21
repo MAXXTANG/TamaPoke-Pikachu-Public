@@ -1,0 +1,54 @@
+{
+  "base_repository": "https://github.com/socquique/TamaPoke",
+  "base_commit": "00136942f42c651ceb75fbfef8499a2df945cde7",
+  "version": "1.19-pika",
+  "esp32_core": "3.3.12",
+  "upstream_ci_core": "3.3.10",
+  "fqbn": "esp32:esp32:esp32s3:CDCOnBoot=cdc,FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB",
+  "libraries": {
+    "GFX Library for Arduino": "1.6.9",
+    "XPowersLib": "0.3.3",
+    "U8g2": "2.36.19",
+    "SensorLib": "0.5.1"
+  },
+  "changes": [
+    "Pikachu and Raichu normal/shiny TPK2 sprites embedded as fallback when sprite files are unavailable",
+    "SPEC command now exits initial starter selection, registers the chosen species and persists immediately"
+  ],
+  "sprite_assets": [
+    {
+      "file": "p025.bin",
+      "size_bytes": 159043,
+      "sha256": "fe5b34f8923dc18b00b7404bbbe90f7eff1749fdc985ad66ee4317e5c9d0b0db"
+    },
+    {
+      "file": "p026.bin",
+      "size_bytes": 165451,
+      "sha256": "082bc8d6899d4da9ab9079b1048b6155d6ee4983bccc7a2a3969b8408c569caf"
+    },
+    {
+      "file": "ps025.bin",
+      "size_bytes": 159043,
+      "sha256": "7e2f587dca5d2c6e802af314c4fb7bd0ccb2abc2ac29e29da3f8ba5c0378c143"
+    },
+    {
+      "file": "ps026.bin",
+      "size_bytes": 134663,
+      "sha256": "8f47b98c99babcfb284c245e901c30c5d44a27ada6ee7fd8c198e71c956c61e5"
+    }
+  ],
+  "host_test_summaries": [
+    "162 tests, 19588 asserts, 162 passed, 0 failed",
+    "162 tests, 19588 asserts, 162 passed, 0 failed"
+  ],
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "device_flash_completed": true,
+  "installation_result": "device-verification.json",
+  "installed_image_sha256": "d5da1d790d8794f92d8db0ff8cbbcffaaeb5ca0e3b7642451944a94e2133edbe",
+  "selection_survives_reboot": true,
+  "sprite_loaded_without_microsd": true,
+  "application_size_bytes": 1471920
+}

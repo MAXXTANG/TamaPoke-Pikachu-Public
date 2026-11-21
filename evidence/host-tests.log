@@ -1,0 +1,436 @@
+clang++ -std=c++17 -O1 -g -Wall -Wextra -Wno-unused-parameter -fno-omit-frame-pointer -I shim -o build/tamapoke_tests main.cpp shim/shim.cpp test_pet.cpp test_dex.cpp test_i18n.cpp test_blit.cpp test_batcurve.cpp test_power.cpp test_bootbutton.cpp test_screenlock.cpp test_trainingtouch.cpp ../pet.cpp ../i18n.cpp ../screenlock.cpp ../trainingtouch.cpp 
+
+egg
+  ok   primera_partida_pide_inicial
+  ok   no_eclosiona_mientras_se_elige_inicial
+  ok   eclosiona_sola_a_los_3_minutos
+  ok   tres_toques_eclosionan
+  ok   eclosionar_sortea_genes_y_resetea_al_individuo
+  ok   tocar_huevo_no_hace_nada_si_ya_eclosiono
+  ok   rareza_del_huevo_es_valida
+
+feed
+  ok   baya_normal_sube_25_y_topa_en_100
+  ok   baya_favorita_sube_mas_y_da_corazon
+  ok   chuche_engorda
+  ok   dormido_o_huevo_no_come
+
+tick
+  ok   despierto_baja_comida_2_y_energia_1_por_minuto
+  ok   las_barras_nunca_bajan_de_cero
+  ok   dormir_recupera_energia_con_suelos
+  ok   sobrepeso_se_quema_solo
+  ok   descuido_cuenta_una_vez_por_hora
+  ok   descuido_enfria_el_vinculo_sin_arrasarlo
+  ok   buen_cuidado_12h_forja_defensa
+
+level
+  ok   un_nivel_por_hora_de_juego
+  ok   no_desborda_con_mascotas_longevas
+
+evolve
+  ok   requiere_nivel_y_buen_cuidado
+  ok   cada_descuido_retrasa_un_nivel
+  ok   muchos_descuidos_no_adelantan_la_evolucion
+  ok   no_evoluciona_dormido_ni_de_huevo_ni_en_ceremonia
+  ok   transforma_registra_y_anima
+  ok   forma_final_no_evoluciona
+  ok   eevee_se_ramifica_en_134_136
+  ok   boton_de_evolucion_se_pospone_al_declinar
+
+stats
+  ok   formula_base_por_genes_mas_nivel_y_entreno
+  ok   el_huevo_no_tiene_stats
+
+train
+  ok   saco_da_un_punto_cada_4_golpes_con_tope
+  ok   el_saco_anuncia_lo_que_de_verdad_sube
+  ok   entrenamiento_topa_en_100
+  ok   el_saco_cansa_y_quema_peso
+
+play
+  ok   minijuego_entrena_velocidad_y_guarda_record
+  ok   jugar_sube_felicidad_y_cansa
+
+care
+  ok   limpiar_quita_cacas_y_deja_higiene_a_tope
+  ok   mimar_sube_felicidad_y_vinculo
+  ok   el_vinculo_tiene_tope_diario
+
+mood
+  ok   refleja_el_estado
+
+dexreg
+  ok   bitmap_cubre_1_a_151
+  ok   fuera_de_rango_no_esta_registrado
+  ok   linea_incompleta_se_detecta
+  ok   la_rama_de_eevee_cuenta_las_tres
+
+egg
+  ok   el_sorteo_siempre_da_una_especie_valida
+  ok   el_primer_huevo_es_un_inicial_clasico
+  ok   una_escapada_castiga_la_rareza
+
+streak
+  ok   el_primer_cuidado_del_dia_suma
+  ok   un_dia_perdido_reinicia
+  ok   sin_reloj_no_hay_racha
+  ok   celebra_los_hitos
+
+bonus
+  ok   racha_y_vinculo_mejoran_el_huevo
+
+medals
+  ok   nivel_10_da_medalla
+  ok   en_forma_llega_al_nivel_5
+  ok   cada_medalla_nueva_suma_al_total
+  ok   forma_final_al_nacer
+  ok   la_baya_favorita_da_medalla
+  ok   el_total_acumula_entre_crianzas
+
+ceremony
+  ok   despedida_solo_en_forma_final_y_a_los_3_dias
+  ok   la_despedida_deja_un_huevo_nuevo
+  ok   escaparse_pide_una_hora_de_abandono_total
+  ok   un_solo_cuidado_salva_del_abandono
+  ok   durante_la_ceremonia_no_se_puede_interactuar
+  ok   soltar_marca_el_final_como_liberacion
+  ok   un_huevo_no_se_despide_ni_se_suelta
+
+offline
+  ok   aplica_el_tiempo_apagado_con_suelo_de_15
+  ok   tope_de_dos_semanas
+  ok   menos_de_dos_minutos_no_hace_nada
+  ok   el_huevo_eclosiona_en_tu_ausencia
+  ok   durmiendo_se_descansa_tambien_apagado
+  ok   sin_reloj_no_se_aplica_nada
+
+save
+  ok   el_estado_sobrevive_a_un_reinicio
+  ok   selected_pikachu_exits_starter_selection_and_survives_restart
+  ok   changing_species_preserves_existing_care_progress
+  ok   el_apodo_se_recorta_a_11_caracteres
+  ok   borrado_de_fabrica_deja_todo_como_nuevo
+  ok   el_autoguardado_se_marca_y_se_vuelca
+
+dex
+  ok   la_tabla_tiene_152_entradas
+  ok   todos_los_nombres_son_ascii_en_mayusculas
+  ok   los_nombres_traducidos_tambien_son_ascii
+  ok   ningun_nombre_desborda_la_cabecera
+  ok   las_evoluciones_apuntan_a_entradas_validas
+  ok   evolucionar_y_nivel_van_de_la_mano
+  ok   ninguna_cadena_evolutiva_hace_bucle
+  ok   los_niveles_de_evolucion_suben_a_lo_largo_de_la_cadena
+  ok   toda_especie_es_alcanzable
+  ok   toda_linea_se_completa_antes_de_la_despedida
+  ok   las_stats_base_son_plausibles
+  ok   la_rama_de_eevee_cuadra_con_el_codigo
+  ok   los_iniciales_clasicos_son_validos
+  ok   hay_al_menos_una_especie_de_cada_rareza
+  ok   ningun_tier_desborda_el_array_de_candidatos
+  ok   dexName_cae_al_nombre_base_si_no_hay_traduccion
+  ok   dexName_fuera_de_rango_no_revienta
+
+i18n
+  ok   ningun_idioma_tiene_huecos
+  ok   los_acentos_van_en_un_solo_byte_no_en_utf8
+  ok   los_formatos_coinciden_en_todos_los_idiomas
+  ok   los_formatos_cuadran_con_las_llamadas_del_sketch
+  ok   las_medallas_estan_en_todos_los_idiomas
+  ok   las_medallas_no_llevan_acentos
+  ok   el_idioma_se_guarda_y_se_recupera
+  ok   sin_ajuste_guardado_arranca_en_el_idioma_por_defecto
+  ok   un_idioma_invalido_en_la_nvs_no_rompe_nada
+  ok   setLang_rechaza_valores_fuera_de_rango
+
+blit
+  ok   los_tramos_pintan_los_mismos_pixeles
+  ok   filas_vacia_llena_y_de_un_pixel
+  ok   clave_indexada_transparente_y_silueta
+  ok   la_silueta_une_colores_distintos
+  ok   claves_de_mapa_de_caracteres
+  ok   filas_vacias_y_de_un_solo_color_o_todo_distinto
+
+batcurve
+  ok   extremos
+  ok   es_monotona_y_cubre_todo_el_rango
+  ok   el_apagado_exige_tension_baja_sostenida
+  ok   un_bache_por_carga_no_apaga
+  ok   tras_arrancar_no_apaga
+  ok   una_lectura_fallida_corta_la_cuenta
+  ok   el_porcentaje_solo_baja_en_descarga
+  ok   sin_semilla_arranca_en_la_curva
+
+power
+  ok   idleSince_no_desborda_si_el_toque_es_posterior_al_reloj_leido
+  ok   los_escalones_de_atenuacion_son_los_de_siempre
+  ok   el_brillo_no_cambia_con_bateria_normal
+  ok   con_poca_bateria_el_brillo_tiene_tope_y_no_sube_nunca
+  ok   el_periodo_de_frame_crece_con_la_inactividad_y_nunca_es_cero_con_pantalla_encendida
+  ok   el_juego_y_la_pantalla_apagada_mandan_sobre_el_resto
+  ok   dormido_y_con_poca_bateria_se_dibuja_menos
+  ok   el_amplificador_solo_esta_encendido_con_el_bicho_despierto_y_activo
+  ok   light_sleep_con_la_pantalla_apagada_o_casi_apagada_y_sin_usb
+  ok   la_bateria_se_lee_menos_veces_con_la_pantalla_apagada
+  ok   diez_minutos_sin_tocar_vuelcan_mucho_menos_que_antes
+  ok   con_la_pantalla_apagada_y_sin_usb_el_bucle_despierta_cinco_veces_por_segundo
+  ok   el_nivel_de_ajustes_escala_el_brillo_y_respeta_el_orden
+  ok   los_niveles_de_volumen_bajan_y_el_alto_es_el_de_siempre
+
+BootButton
+  ok   SingleWaitsForWindow
+  ok   DoubleSuppressesSingle
+  ok   SecondEdgeAtWindowBoundary
+  ok   LateSecondPressIsTwoSingles
+  ok   LongFiresOnceWithoutSingle
+  ok   LongSecondPressWinsOverDoubleAndSingle
+  ok   ReleaseAfterLongWhenLoopWasBusy
+  ok   DebouncesBothEdges
+  ok   HeldAtInitialisationIsIgnored
+  ok   MillisWrapSingleAndLong
+  ok   MillisWrapDouble
+  ok   ShortHoldBelowThresholdIsSingle
+
+ScreenLock
+  ok   TripleTogglesAndResetStartsUnlocked
+  ok   SingleDoubleAndHoldHaveNoAction
+  ok   LateAndBoundaryEdges
+  ok   PendingBootGestureIsDiscardedAndHeldKeyIgnored
+  ok   BlankInhibitsRenderingBrightnessAndAmplifier
+  ok   WrapAndRelockHint
+
+TrainingTouch
+  ok   OneHundredRapidTapsNoRepeatWhileHeld
+  ok   TopAndBroadScreenAreHits
+  ok   ExitRequiresAContinuousOneSecondHold
+  ok   QuickTapsOnExitDoNotExitOrScore
+  ok   MovingOrMissingReportsCancelsExit
+  ok   LockAndExitSwallowHeldContact
+  ok   DecoderRestoresLegacyEmptyRearming
+  ok   RolloverAndCaptureTimeDeadline
+  ok   ContactEmptyCyclesRecoverEveryTap
+  ok   ContactFramesAndTrackIdsAreNotTapCounters
+  ok   SecondRecordCanBeFirstActiveFinger
+  ok   EmptyClearsHeldExitAndZeroPacketDoesNotLatch
+
+----------------------------------------
+162 tests, 19588 asserts, 162 passed, 0 failed
+clang++ -std=c++17 -O1 -g -Wall -Wextra -Wno-unused-parameter -fno-omit-frame-pointer -fsanitize=address,undefined -fno-sanitize-recover=all -I shim -o build/tamapoke_tests_asan main.cpp shim/shim.cpp test_pet.cpp test_dex.cpp test_i18n.cpp test_blit.cpp test_batcurve.cpp test_power.cpp test_bootbutton.cpp test_screenlock.cpp test_trainingtouch.cpp ../pet.cpp ../i18n.cpp ../screenlock.cpp ../trainingtouch.cpp 
+
+egg
+  ok   primera_partida_pide_inicial
+  ok   no_eclosiona_mientras_se_elige_inicial
+  ok   eclosiona_sola_a_los_3_minutos
+  ok   tres_toques_eclosionan
+  ok   eclosionar_sortea_genes_y_resetea_al_individuo
+  ok   tocar_huevo_no_hace_nada_si_ya_eclosiono
+  ok   rareza_del_huevo_es_valida
+
+feed
+  ok   baya_normal_sube_25_y_topa_en_100
+  ok   baya_favorita_sube_mas_y_da_corazon
+  ok   chuche_engorda
+  ok   dormido_o_huevo_no_come
+
+tick
+  ok   despierto_baja_comida_2_y_energia_1_por_minuto
+  ok   las_barras_nunca_bajan_de_cero
+  ok   dormir_recupera_energia_con_suelos
+  ok   sobrepeso_se_quema_solo
+  ok   descuido_cuenta_una_vez_por_hora
+  ok   descuido_enfria_el_vinculo_sin_arrasarlo
+  ok   buen_cuidado_12h_forja_defensa
+
+level
+  ok   un_nivel_por_hora_de_juego
+  ok   no_desborda_con_mascotas_longevas
+
+evolve
+  ok   requiere_nivel_y_buen_cuidado
+  ok   cada_descuido_retrasa_un_nivel
+  ok   muchos_descuidos_no_adelantan_la_evolucion
+  ok   no_evoluciona_dormido_ni_de_huevo_ni_en_ceremonia
+  ok   transforma_registra_y_anima
+  ok   forma_final_no_evoluciona
+  ok   eevee_se_ramifica_en_134_136
+  ok   boton_de_evolucion_se_pospone_al_declinar
+
+stats
+  ok   formula_base_por_genes_mas_nivel_y_entreno
+  ok   el_huevo_no_tiene_stats
+
+train
+  ok   saco_da_un_punto_cada_4_golpes_con_tope
+  ok   el_saco_anuncia_lo_que_de_verdad_sube
+  ok   entrenamiento_topa_en_100
+  ok   el_saco_cansa_y_quema_peso
+
+play
+  ok   minijuego_entrena_velocidad_y_guarda_record
+  ok   jugar_sube_felicidad_y_cansa
+
+care
+  ok   limpiar_quita_cacas_y_deja_higiene_a_tope
+  ok   mimar_sube_felicidad_y_vinculo
+  ok   el_vinculo_tiene_tope_diario
+
+mood
+  ok   refleja_el_estado
+
+dexreg
+  ok   bitmap_cubre_1_a_151
+  ok   fuera_de_rango_no_esta_registrado
+  ok   linea_incompleta_se_detecta
+  ok   la_rama_de_eevee_cuenta_las_tres
+
+egg
+  ok   el_sorteo_siempre_da_una_especie_valida
+  ok   el_primer_huevo_es_un_inicial_clasico
+  ok   una_escapada_castiga_la_rareza
+
+streak
+  ok   el_primer_cuidado_del_dia_suma
+  ok   un_dia_perdido_reinicia
+  ok   sin_reloj_no_hay_racha
+  ok   celebra_los_hitos
+
+bonus
+  ok   racha_y_vinculo_mejoran_el_huevo
+
+medals
+  ok   nivel_10_da_medalla
+  ok   en_forma_llega_al_nivel_5
+  ok   cada_medalla_nueva_suma_al_total
+  ok   forma_final_al_nacer
+  ok   la_baya_favorita_da_medalla
+  ok   el_total_acumula_entre_crianzas
+
+ceremony
+  ok   despedida_solo_en_forma_final_y_a_los_3_dias
+  ok   la_despedida_deja_un_huevo_nuevo
+  ok   escaparse_pide_una_hora_de_abandono_total
+  ok   un_solo_cuidado_salva_del_abandono
+  ok   durante_la_ceremonia_no_se_puede_interactuar
+  ok   soltar_marca_el_final_como_liberacion
+  ok   un_huevo_no_se_despide_ni_se_suelta
+
+offline
+  ok   aplica_el_tiempo_apagado_con_suelo_de_15
+  ok   tope_de_dos_semanas
+  ok   menos_de_dos_minutos_no_hace_nada
+  ok   el_huevo_eclosiona_en_tu_ausencia
+  ok   durmiendo_se_descansa_tambien_apagado
+  ok   sin_reloj_no_se_aplica_nada
+
+save
+  ok   el_estado_sobrevive_a_un_reinicio
+  ok   selected_pikachu_exits_starter_selection_and_survives_restart
+  ok   changing_species_preserves_existing_care_progress
+  ok   el_apodo_se_recorta_a_11_caracteres
+  ok   borrado_de_fabrica_deja_todo_como_nuevo
+  ok   el_autoguardado_se_marca_y_se_vuelca
+
+dex
+  ok   la_tabla_tiene_152_entradas
+  ok   todos_los_nombres_son_ascii_en_mayusculas
+  ok   los_nombres_traducidos_tambien_son_ascii
+  ok   ningun_nombre_desborda_la_cabecera
+  ok   las_evoluciones_apuntan_a_entradas_validas
+  ok   evolucionar_y_nivel_van_de_la_mano
+  ok   ninguna_cadena_evolutiva_hace_bucle
+  ok   los_niveles_de_evolucion_suben_a_lo_largo_de_la_cadena
+  ok   toda_especie_es_alcanzable
+  ok   toda_linea_se_completa_antes_de_la_despedida
+  ok   las_stats_base_son_plausibles
+  ok   la_rama_de_eevee_cuadra_con_el_codigo
+  ok   los_iniciales_clasicos_son_validos
+  ok   hay_al_menos_una_especie_de_cada_rareza
+  ok   ningun_tier_desborda_el_array_de_candidatos
+  ok   dexName_cae_al_nombre_base_si_no_hay_traduccion
+  ok   dexName_fuera_de_rango_no_revienta
+
+i18n
+  ok   ningun_idioma_tiene_huecos
+  ok   los_acentos_van_en_un_solo_byte_no_en_utf8
+  ok   los_formatos_coinciden_en_todos_los_idiomas
+  ok   los_formatos_cuadran_con_las_llamadas_del_sketch
+  ok   las_medallas_estan_en_todos_los_idiomas
+  ok   las_medallas_no_llevan_acentos
+  ok   el_idioma_se_guarda_y_se_recupera
+  ok   sin_ajuste_guardado_arranca_en_el_idioma_por_defecto
+  ok   un_idioma_invalido_en_la_nvs_no_rompe_nada
+  ok   setLang_rechaza_valores_fuera_de_rango
+
+blit
+  ok   los_tramos_pintan_los_mismos_pixeles
+  ok   filas_vacia_llena_y_de_un_pixel
+  ok   clave_indexada_transparente_y_silueta
+  ok   la_silueta_une_colores_distintos
+  ok   claves_de_mapa_de_caracteres
+  ok   filas_vacias_y_de_un_solo_color_o_todo_distinto
+
+batcurve
+  ok   extremos
+  ok   es_monotona_y_cubre_todo_el_rango
+  ok   el_apagado_exige_tension_baja_sostenida
+  ok   un_bache_por_carga_no_apaga
+  ok   tras_arrancar_no_apaga
+  ok   una_lectura_fallida_corta_la_cuenta
+  ok   el_porcentaje_solo_baja_en_descarga
+  ok   sin_semilla_arranca_en_la_curva
+
+power
+  ok   idleSince_no_desborda_si_el_toque_es_posterior_al_reloj_leido
+  ok   los_escalones_de_atenuacion_son_los_de_siempre
+  ok   el_brillo_no_cambia_con_bateria_normal
+  ok   con_poca_bateria_el_brillo_tiene_tope_y_no_sube_nunca
+  ok   el_periodo_de_frame_crece_con_la_inactividad_y_nunca_es_cero_con_pantalla_encendida
+  ok   el_juego_y_la_pantalla_apagada_mandan_sobre_el_resto
+  ok   dormido_y_con_poca_bateria_se_dibuja_menos
+  ok   el_amplificador_solo_esta_encendido_con_el_bicho_despierto_y_activo
+  ok   light_sleep_con_la_pantalla_apagada_o_casi_apagada_y_sin_usb
+  ok   la_bateria_se_lee_menos_veces_con_la_pantalla_apagada
+  ok   diez_minutos_sin_tocar_vuelcan_mucho_menos_que_antes
+  ok   con_la_pantalla_apagada_y_sin_usb_el_bucle_despierta_cinco_veces_por_segundo
+  ok   el_nivel_de_ajustes_escala_el_brillo_y_respeta_el_orden
+  ok   los_niveles_de_volumen_bajan_y_el_alto_es_el_de_siempre
+
+BootButton
+  ok   SingleWaitsForWindow
+  ok   DoubleSuppressesSingle
+  ok   SecondEdgeAtWindowBoundary
+  ok   LateSecondPressIsTwoSingles
+  ok   LongFiresOnceWithoutSingle
+  ok   LongSecondPressWinsOverDoubleAndSingle
+  ok   ReleaseAfterLongWhenLoopWasBusy
+  ok   DebouncesBothEdges
+  ok   HeldAtInitialisationIsIgnored
+  ok   MillisWrapSingleAndLong
+  ok   MillisWrapDouble
+  ok   ShortHoldBelowThresholdIsSingle
+
+ScreenLock
+  ok   TripleTogglesAndResetStartsUnlocked
+  ok   SingleDoubleAndHoldHaveNoAction
+  ok   LateAndBoundaryEdges
+  ok   PendingBootGestureIsDiscardedAndHeldKeyIgnored
+  ok   BlankInhibitsRenderingBrightnessAndAmplifier
+  ok   WrapAndRelockHint
+
+TrainingTouch
+  ok   OneHundredRapidTapsNoRepeatWhileHeld
+  ok   TopAndBroadScreenAreHits
+  ok   ExitRequiresAContinuousOneSecondHold
+  ok   QuickTapsOnExitDoNotExitOrScore
+  ok   MovingOrMissingReportsCancelsExit
+  ok   LockAndExitSwallowHeldContact
+  ok   DecoderRestoresLegacyEmptyRearming
+  ok   RolloverAndCaptureTimeDeadline
+  ok   ContactEmptyCyclesRecoverEveryTap
+  ok   ContactFramesAndTrackIdsAreNotTapCounters
+  ok   SecondRecordCanBeFirstActiveFinger
+  ok   EmptyClearsHeldExitAndZeroPacketDoesNotLatch
+
+----------------------------------------
+162 tests, 19588 asserts, 162 passed, 0 failed
